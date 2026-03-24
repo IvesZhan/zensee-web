@@ -14,27 +14,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <script>
     (function () {
-      var params = new URLSearchParams(window.location.search);
-      var manual = (params.get("lang") || "").toLowerCase();
-      var target = manual;
-
-      if (!target) {
-        var browserLang = (navigator.language || "").toLowerCase();
-        if (browserLang.indexOf("ja") === 0) {
-          target = "ja";
-        } else if (browserLang.indexOf("en") === 0) {
-          target = "en";
-        } else {
-          target = "zh";
-        }
-      }
-
-      if (target === "en") {
-        window.location.replace("./en/");
+      var browserLang = (navigator.language || "").toLowerCase();
+      if (browserLang.indexOf("ja") === 0) {
+        window.location.replace("./ja/");
         return;
       }
-      if (target === "ja") {
-        window.location.replace("./ja/");
+      if (browserLang.indexOf("zh") !== 0) {
+        window.location.replace("./en/");
       }
     }());
   </script>
@@ -42,14 +28,18 @@
     :root {
       color-scheme: light;
       --bg: #f6f1e9;
+      --bg-soft: rgba(255, 252, 247, 0.7);
+      --panel: rgba(255, 252, 247, 0.86);
       --text: #514335;
       --muted: #8f7d6d;
       --line: rgba(160, 141, 120, 0.14);
       --accent: #9d8972;
       --accent-strong: #7e6b58;
-      --shadow: 0 20px 42px rgba(118, 99, 78, 0.12);
-      --surface: rgba(255, 252, 247, 0.82);
-      --container: min(100% - 24px, 460px);
+      --shadow: 0 22px 44px rgba(118, 99, 78, 0.12);
+      --container: min(100% - 24px, 980px);
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
     }
 
     * { box-sizing: border-box; }
@@ -85,15 +75,15 @@
     }
 
     body::before {
-      top: calc(env(safe-area-inset-top) + 26px);
-      width: min(88vw, 560px);
-      height: min(88vw, 560px);
+      top: calc(env(safe-area-inset-top) + 28px);
+      width: min(88vw, 620px);
+      height: min(88vw, 620px);
     }
 
     body::after {
       top: -18px;
-      width: min(118vw, 780px);
-      height: min(118vw, 780px);
+      width: min(118vw, 820px);
+      height: min(118vw, 820px);
       opacity: 0.72;
     }
 
@@ -110,45 +100,41 @@
     .page {
       width: var(--container);
       margin: 0 auto;
-      padding: calc(env(safe-area-inset-top) + 18px) 0 calc(env(safe-area-inset-bottom) + 118px);
+      padding: calc(env(safe-area-inset-top) + 20px) 0 calc(env(safe-area-inset-bottom) + 112px);
     }
 
-    .topbar {
-      display: flex;
+    .hero {
+      display: grid;
+      gap: 22px;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      min-width: 0;
+      gap: 14px;
     }
 
     .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
       background: linear-gradient(180deg, rgba(164, 145, 123, 0.94), rgba(128, 107, 87, 0.96));
-      box-shadow: 0 10px 20px rgba(126, 107, 87, 0.2);
-      position: relative;
+      box-shadow: 0 14px 28px rgba(126, 107, 87, 0.18);
+      display: grid;
+      place-items: center;
       flex: 0 0 auto;
     }
 
-    .brand-mark::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 999px;
-      border: 2px solid rgba(255, 248, 240, 0.92);
+    .brand-mark img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
     }
 
     .brand-copy strong {
       display: block;
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 700;
       letter-spacing: 0.01em;
     }
@@ -156,132 +142,123 @@
     .brand-copy span {
       display: block;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13px;
+      margin-top: 2px;
     }
 
-    .lang-switch {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px;
-      border-radius: 999px;
-      background: rgba(255, 252, 247, 0.72);
-      border: 1px solid var(--line);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      flex: 0 0 auto;
-    }
-
-    .lang-switch a {
-      min-width: 42px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-    }
-
-    .lang-switch a.active {
-      background: rgba(255, 252, 247, 0.98);
-      color: var(--accent-strong);
-      box-shadow: 0 8px 16px rgba(126, 107, 87, 0.08);
-    }
-
-    .hero {
-      text-align: center;
-    }
-
-    h1 {
-      margin: 10px 0 10px;
+    .hero-copy h1 {
+      margin: 16px 0 12px;
       font-family: "Iowan Old Style", "Songti SC", "STSong", serif;
-      font-size: clamp(23px, 6.4vw, 34px);
-      line-height: 1.18;
+      font-size: clamp(23px, 6vw, 38px);
+      line-height: 1.16;
       letter-spacing: -0.02em;
       white-space: nowrap;
     }
 
-    .summary {
-      margin: 0 auto;
-      max-width: 21rem;
+    .hero-copy p {
+      margin: 0;
+      max-width: 34rem;
       color: var(--muted);
-      font-size: 14px;
-    }
-
-    .screens {
-      position: relative;
-      width: min(100%, 314px);
-      height: 274px;
-      margin: 18px auto 0;
-    }
-
-    .aura {
-      position: absolute;
-      inset: 54px 18px 0;
-      background: radial-gradient(circle, rgba(157, 137, 114, 0.22), rgba(157, 137, 114, 0) 74%);
-      filter: blur(8px);
-    }
-
-    .shot {
-      position: absolute;
-      width: 45%;
-      min-width: 138px;
-      border-radius: 26px;
-      overflow: hidden;
-      background: #f8f3ed;
-      border: 1px solid rgba(157, 137, 114, 0.16);
-      box-shadow: var(--shadow);
-    }
-
-    .shot.one {
-      left: 10px;
-      top: 0;
-      transform: rotate(-6deg);
-    }
-
-    .shot.two {
-      right: 10px;
-      top: 62px;
-      transform: rotate(6deg);
+      font-size: 15px;
     }
 
     .quote {
-      margin: 14px auto 0;
-      max-width: 16rem;
+      margin-top: 14px;
       color: var(--accent-strong);
       font-size: 12px;
       letter-spacing: 0.08em;
     }
 
-    .highlights {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
-    .highlight {
-      padding: 12px 8px;
-      border-radius: 20px;
-      background: rgba(255, 252, 247, 0.66);
+    .tag {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--bg-soft);
       border: 1px solid var(--line);
-      text-align: center;
-      box-shadow: 0 10px 20px rgba(118, 99, 78, 0.06);
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 600;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
-    .highlight strong {
-      display: block;
-      font-size: 14px;
+    .gallery {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .screen-card {
+      padding: 14px;
+      border-radius: var(--radius-xl);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .screen-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-strong);
+      font-size: 13px;
       font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .screen-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .screen-card img {
+      width: 100%;
+      border-radius: 26px;
+      border: 1px solid rgba(157, 137, 114, 0.14);
+      box-shadow: 0 16px 30px rgba(118, 99, 78, 0.1);
+    }
+
+    .screen-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .features {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .feature {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 252, 247, 0.74);
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 24px rgba(118, 99, 78, 0.06);
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
       color: var(--accent-strong);
     }
 
-    .highlight span {
-      display: block;
-      margin-top: 4px;
+    .feature p {
+      margin: 0;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 14px;
     }
 
     .links {
@@ -289,7 +266,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px 16px;
-      margin-top: 24px;
+      margin-top: 28px;
       color: var(--muted);
       font-size: 13px;
     }
@@ -302,67 +279,38 @@
 
     .floating-download {
       position: fixed;
-      left: 12px;
-      right: 12px;
-      bottom: calc(env(safe-area-inset-bottom) + 12px);
+      left: 50%;
+      bottom: calc(env(safe-area-inset-bottom) + 14px);
+      transform: translateX(-50%);
       z-index: 20;
-      padding: 10px;
-      border-radius: 999px;
-      background: rgba(255, 252, 247, 0.82);
-      border: 1px solid var(--line);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      box-shadow: 0 16px 34px rgba(118, 99, 78, 0.12);
     }
 
     .download-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      min-height: 56px;
-      padding: 14px 18px;
+      min-width: min(220px, calc(100vw - 32px));
+      min-height: 48px;
+      padding: 12px 22px;
       border-radius: 999px;
       background: linear-gradient(180deg, #9d8972 0%, #7e6b58 100%);
       color: #fbf7f1;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      box-shadow: 0 16px 28px rgba(126, 107, 87, 0.22);
+      box-shadow: 0 14px 26px rgba(126, 107, 87, 0.24);
     }
 
-    @media (min-width: 700px) {
-      :root {
-        --container: min(100% - 32px, 900px);
-      }
-
-      .page {
-        padding-top: calc(env(safe-area-inset-top) + 28px);
-      }
-
+    @media (min-width: 760px) {
       .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
-        gap: 24px;
-        align-items: center;
-        text-align: left;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
       }
 
-      .summary,
-      .quote {
-        margin-left: 0;
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .screens {
-        width: 360px;
-        height: 314px;
-        margin-top: 0;
-      }
-
-      .floating-download {
-        left: 50%;
-        right: auto;
-        width: min(100% - 32px, 520px);
-        transform: translateX(-50%);
+      .features {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -377,55 +325,59 @@
 </head>
 <body>
   <main class="page">
-    <header class="topbar">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true"></div>
-        <div class="brand-copy">
-          <strong>ZenSee</strong>
-          <span>禅修记录与静心练习</span>
-        </div>
-      </div>
-      <nav class="lang-switch" aria-label="Language switch">
-        <a class="active" href="../download/?lang=zh">中文</a>
-        <a href="../download/en/">EN</a>
-        <a href="../download/ja/">JP</a>
-      </nav>
-    </header>
-
     <section class="hero">
-      <div>
+      <div class="hero-copy">
+        <div class="brand">
+          <div class="brand-mark">
+            <img src="../MeditationIcon.png" alt="ZenSee App Icon" />
+          </div>
+          <div class="brand-copy">
+            <strong>ZenSee</strong>
+            <span>禅修记录与静心练习</span>
+          </div>
+        </div>
+
         <h1>见天地，见众生，见自己。</h1>
-        <p class="summary">
-          让每天几分钟的安静，变成可以被记录、被回看的稳定节奏。
-          在 ZenSee 里开始禅修、沉淀状态、看见自己的长期变化。
+        <p>
+          ZenSee 把禅修练习、状态记录与长期统计放进一个安静克制的空间里，
+          让每天几分钟的停下来，变成真正能够持续的节奏。
         </p>
         <p class="quote">不取于相，如如不动。</p>
+
+        <div class="tag-list" aria-label="highlights">
+          <span class="tag">轻量开始</span>
+          <span class="tag">每日记录</span>
+          <span class="tag">长期回看</span>
+        </div>
       </div>
 
-      <div class="screens" aria-hidden="true">
-        <div class="aura"></div>
-        <figure class="shot one">
+      <div class="gallery">
+        <article class="screen-card">
+          <div class="screen-label">静坐练习</div>
           <img src="../IMG_2399.PNG" alt="ZenSee 首页截图" />
-        </figure>
-        <figure class="shot two">
+          <p>在安静的首页里开始今天的禅修，把练习留在真正想回来的地方。</p>
+        </article>
+        <article class="screen-card">
+          <div class="screen-label">统计回看</div>
           <img src="../IMG_2400.PNG" alt="ZenSee 统计页截图" />
-        </figure>
+          <p>用周、月和累计视角回看自己的节奏，让坚持有迹可循。</p>
+        </article>
       </div>
     </section>
 
-    <section class="highlights" aria-label="App highlights">
-      <div class="highlight">
-        <strong>开始</strong>
-        <span>轻量练习</span>
-      </div>
-      <div class="highlight">
-        <strong>记录</strong>
-        <span>每日沉淀</span>
-      </div>
-      <div class="highlight">
-        <strong>回看</strong>
-        <span>长期统计</span>
-      </div>
+    <section class="features">
+      <article class="feature">
+        <strong>从少开始</strong>
+        <p>不用复杂设置，从短时练习开始，把静下来的门槛降到足够低。</p>
+      </article>
+      <article class="feature">
+        <strong>把状态留下来</strong>
+        <p>每天的练习、感受和节奏都能沉淀下来，不再只停留在当下那几分钟。</p>
+      </article>
+      <article class="feature">
+        <strong>看见长期变化</strong>
+        <p>当记录不断累积，你会更清楚自己如何开始、如何坚持，又如何慢慢安定。</p>
+      </article>
     </section>
 
     <div class="links">
