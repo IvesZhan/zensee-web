@@ -2,12 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>禅·见 下载</title>
-  <meta name="description" content="禅·见是一款安静克制的禅修练习应用。点击前往下载，开始你的静心时刻。" />
-  <meta name="theme-color" content="#f6f1e9" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>禅·见 — 在数字世界中留一处静地</title>
+  <meta name="description" content="禅·见帮助你开始练习、记录状态，并在长期回看里看见自己的节奏。" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="禅·见 下载" />
+  <meta property="og:title" content="禅·见" />
   <meta property="og:description" content="把静心练习留在每天都想回来的地方。" />
   <meta property="og:url" content="https://iveszhan.github.io/zensee-legal/download/" />
   <meta property="og:image" content="https://iveszhan.github.io/zensee-legal/IMG_2399.PNG" />
@@ -33,469 +32,144 @@
       }
     }());
   </script>
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f6f1e9;
-      --bg-soft: rgba(255, 252, 247, 0.72);
-      --panel: rgba(255, 252, 247, 0.9);
-      --text: #514335;
-      --muted: #8f7d6d;
-      --line: rgba(160, 141, 120, 0.14);
-      --accent: #9d8972;
-      --accent-strong: #7e6b58;
-      --shadow: 0 22px 44px rgba(118, 99, 78, 0.12);
-      --container: min(100% - 24px, 1120px);
-      --radius-xl: 34px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      min-height: 100%;
-      background-color: var(--bg);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(232, 222, 209, 0.82), transparent 42%),
-        linear-gradient(180deg, #fbf7f1 0%, #f6f1e9 48%, #f2ece4 100%);
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-color: var(--bg);
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 999px;
-      border: 1px solid rgba(157, 137, 114, 0.14);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    body::before {
-      top: calc(env(safe-area-inset-top) + 24px);
-      width: min(88vw, 720px);
-      height: min(88vw, 720px);
-    }
-
-    body::after {
-      top: -40px;
-      width: min(120vw, 1020px);
-      height: min(120vw, 1020px);
-      opacity: 0.68;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .page {
-      width: var(--container);
-      margin: 0 auto;
-      padding: calc(env(safe-area-inset-top) + 22px) 0 calc(env(safe-area-inset-bottom) + 112px);
-    }
-
-    .hero {
-      display: grid;
-      gap: 22px;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-
-    .brand-mark {
-      width: 62px;
-      height: 62px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, rgba(164, 145, 123, 0.96), rgba(128, 107, 87, 0.98));
-      box-shadow: 0 14px 30px rgba(126, 107, 87, 0.18);
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-    }
-
-    .brand-mark img {
-      width: 34px;
-      height: 34px;
-      object-fit: contain;
-    }
-
-    .brand-copy strong {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-
-    .brand-copy span {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 2px;
-    }
-
-    .kicker {
-      margin: 0 0 10px;
-      color: var(--accent-strong);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero-copy h1 {
-      margin: 0 0 12px;
-      font-family: "Iowan Old Style", "Songti SC", "STSong", serif;
-      font-size: clamp(28px, 6vw, 52px);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      max-width: 10ch;
-    }
-
-    .hero-copy p {
-      margin: 0;
-      max-width: 34rem;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      color: var(--accent-strong);
-      font-size: 13px;
-      font-weight: 600;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    .intro-panel {
-      padding: 18px;
-      border-radius: var(--radius-xl);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
-    .intro-panel strong {
-      display: block;
-      color: var(--accent-strong);
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-
-    .intro-panel p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .features {
-      display: grid;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .feature {
-      padding: 18px;
-      border-radius: var(--radius-lg);
-      background: rgba(255, 252, 247, 0.78);
-      border: 1px solid var(--line);
-      box-shadow: 0 14px 24px rgba(118, 99, 78, 0.06);
-    }
-
-    .feature strong {
-      display: block;
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--accent-strong);
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .showcase {
-      display: grid;
-      gap: 18px;
-      margin-top: 30px;
-      align-items: center;
-    }
-
-    .showcase-copy h2 {
-      margin: 0 0 10px;
-      font-family: "Iowan Old Style", "Songti SC", "STSong", serif;
-      font-size: clamp(24px, 4vw, 34px);
-      line-height: 1.18;
-      letter-spacing: -0.02em;
-    }
-
-    .showcase-copy p {
-      margin: 0;
-      max-width: 34rem;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .showcase-stage {
-      position: relative;
-      min-height: 390px;
-      padding: 22px;
-      border-radius: 40px;
-      background:
-        radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.7), transparent 26%),
-        linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(246, 239, 231, 0.92));
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .showcase-stage::before {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      border-radius: 30px;
-      border: 1px solid rgba(157, 137, 114, 0.08);
-    }
-
-    .halo {
-      position: absolute;
-      inset: auto 14% 10% 14%;
-      height: 160px;
-      background: radial-gradient(circle, rgba(157, 137, 114, 0.22), rgba(157, 137, 114, 0) 72%);
-      filter: blur(8px);
-    }
-
-    .screen {
-      position: absolute;
-      border-radius: 28px;
-      overflow: hidden;
-      background: #f8f3ed;
-      border: 1px solid rgba(157, 137, 114, 0.14);
-      box-shadow: 0 18px 34px rgba(118, 99, 78, 0.14);
-    }
-
-    .screen img {
-      width: 100%;
-      height: auto;
-    }
-
-    .screen.primary {
-      width: min(54%, 290px);
-      right: 32px;
-      top: 28px;
-      transform: rotate(6deg);
-    }
-
-    .screen.secondary {
-      width: min(42%, 220px);
-      left: 28px;
-      bottom: 28px;
-      transform: rotate(-8deg);
-    }
-
-    .note {
-      position: absolute;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255, 252, 247, 0.78);
-      border: 1px solid rgba(157, 137, 114, 0.12);
-      color: var(--accent-strong);
-      font-size: 12px;
-      font-weight: 700;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    .note.top {
-      left: 28px;
-      top: 26px;
-    }
-
-    .note.bottom {
-      right: 26px;
-      bottom: 24px;
-    }
-
-    .links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px 16px;
-      margin-top: 30px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .links a {
-      text-decoration: underline;
-      text-decoration-color: rgba(143, 125, 109, 0.3);
-      text-underline-offset: 3px;
-    }
-
-    .floating-download {
-      position: fixed;
-      left: 50%;
-      bottom: calc(env(safe-area-inset-bottom) + 14px);
-      transform: translateX(-50%);
-      z-index: 20;
-    }
-
-    .download-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: min(210px, calc(100vw - 36px));
-      min-height: 46px;
-      padding: 11px 20px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #9d8972 0%, #7e6b58 100%);
-      color: #fbf7f1;
-      font-size: 15px;
-      font-weight: 700;
-      box-shadow: 0 14px 26px rgba(126, 107, 87, 0.24);
-    }
-
-    @media (min-width: 760px) {
-      .hero {
-        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-      }
-
-      .features {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .showcase {
-        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        transition: none !important;
-        animation: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./web.css" />
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="brand">
-          <div class="brand-mark">
+  <div class="page-shell">
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="brand-lockup">
+          <div class="brand-icon">
             <img src="../MeditationIcon.png" alt="禅·见 App Icon" />
           </div>
-          <div class="brand-copy">
+          <div class="brand-text">
             <strong>禅·见</strong>
             <span>禅修记录与静心练习</span>
           </div>
         </div>
-
-        <p class="kicker">不取于相，如如不动。</p>
-        <h1>把静心练习留在每天都想回来的地方。</h1>
-        <p>
-          禅·见把禅修练习、状态记录与长期统计放进一个安静克制的空间里，
-          让每天几分钟的停下来，不只是片刻休息，而是逐渐稳定下来的节奏。
-        </p>
-
-        <div class="tag-list" aria-label="highlights">
-          <span class="tag">轻量开始</span>
-          <span class="tag">每日记录</span>
-          <span class="tag">长期回看</span>
+        <div class="nav-links">
+          <a href="#experience">体验</a>
+          <a href="#features">功能</a>
+          <a href="#philosophy">理念</a>
+          <a href="#download">下载</a>
         </div>
+        <a class="nav-cta" href="#download">前往下载</a>
       </div>
+    </nav>
 
-      <aside class="intro-panel">
-        <strong>一个更安静的练习入口</strong>
-        <p>
-          从首页开始今天的静坐，在回看中看到自己的节奏变化。
-          页面和交互都尽量克制，只把真正需要留下的内容放在前面。
-        </p>
-      </aside>
-    </section>
+    <main>
+      <section class="section hero" id="experience">
+        <div class="hero-copy">
+          <span class="eyebrow">数字静地</span>
+          <h1>
+            见天地。<br />
+            见众生。<br />
+            <span class="muted">见自己。</span>
+          </h1>
+          <p>不取于相，如如不动。禅·见帮助你开始练习、记录状态，并在长期回看里看见自己的节奏。</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#download">查看下载</a>
+            <a class="secondary-button" href="#features">了解功能</a>
+            <span class="supporting-note">支持 iPhone 与 Android 设备</span>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="hero-visual">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKfviM7pnnvuj21Q69HASGd_qsujpM21dHH31276iTFva7fQDQ-cTI0HK0LA7NjobzsP4K_8P4JRXNBTo8zdMtxmDB-nAjidXcRZk4IRp4RT8HDGDwWHcbHWI-hTLxgMA_jnAaMr5ALCl9xWLyltNS0I3eT5TUx4EXp0eO4fuIKDjc6Uzo3iBJkBgIjKpHiCxpLJuU7U9XOtVfysPxQyo7hho3iKH7MpE-yIXuFva2ReXf11k_POf1HESveXZCiBVh2vGjHXG7Xiw" alt="晨光中的安静窗景和森林薄雾" />
+            <div class="hero-caption">
+              <strong>把喧闹留在外面。</strong>
+            </div>
+          </div>
+          <div class="hero-glow"></div>
+        </div>
+      </section>
 
-    <section class="features">
-      <article class="feature">
-        <strong>从少开始</strong>
-        <p>不用复杂设置，从几分钟开始，让真正开始这件事变得更容易。</p>
-      </article>
-      <article class="feature">
-        <strong>把状态留下来</strong>
-        <p>每天的练习、感受和节奏都能沉淀下来，不再只停留在当下。</p>
-      </article>
-      <article class="feature">
-        <strong>看见长期变化</strong>
-        <p>当记录不断累积，你会更清楚自己如何慢慢稳定下来。</p>
-      </article>
-    </section>
+      <section class="section" id="features">
+        <div class="section-header">
+          <span class="eyebrow">练习方法</span>
+          <h2>为了有意识地使用而设计。</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div>
+              <div class="card-icon">01</div>
+              <h3>从少开始</h3>
+              <p>不需要复杂设置。从短时练习进入，让真正开始这件事变得足够轻。</p>
+            </div>
+            <div class="card-image">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmUAcI2qvVbJPOe5ghxSVgvKfLFe3-ZMObEbLHfPusJMktL9-bEOY_oNcI_v3DT1fNlxPjPEIFmlqSR4dk2EMQkGzyD0-iMBRrrcWzNrjZoTtvN8ivJbfisnrJ7DRiTz4qaoRURY4213xUpZzqYRXmiZj4cGrqbXsYBgDzEUkcrp5NA7-QtLFuEAIgEUqQ8cpgNV7jyhAfExszkicKy0H1M5N5JpCtGYfUUx5FN51V8M4XOdVaQl_NmbpnkWLT-17BhEJz9HjODZc" alt="极简桌面与绿叶花器" />
+            </div>
+          </article>
+          <article class="card offset">
+            <div>
+              <div class="card-icon">02</div>
+              <h3>保持节奏</h3>
+              <p>在练习、记录与回看之间建立稳定流动，让静下来的这件事真正留下来。</p>
+            </div>
+            <div class="card-image">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQp0P7ehqmQzbFm1VXZJdjYrSzg-1nUOOTLHcvH3mnj1wirDn7fMOnKBm0kzxNagYxqKQ7lYOsnpvkEkJVzDxx8huYD3oNGHlaAl0raRSwNzWYhbJcrKmrAnsABq1yIqXkAWMOFDiChdHZg6O6USeoOjv3Gzthg14-YCQ1aUb4sJGWDvRL5O9oFrraYFyoT-5a0psYR7GUdvBZ47GUvPei6fMBe1LcqEm7DTOkF6bQzTMQ6tuevnc7CeFnadFJlrA7kclD4ec0Ykc" alt="柔和灯光下的静谧桌面" />
+            </div>
+          </article>
+          <article class="card">
+            <div>
+              <div class="card-icon">03</div>
+              <h3>看见长期变化</h3>
+              <p>在一周、一月和更长的时间里，慢慢看见自己如何走向更稳定的状态。</p>
+            </div>
+            <div class="card-image">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGwTmlB8rh795qk8LfICpWZ2N5a6fJpIkzyAmI34Gy9m3v5ggfNSdRPPOQJmzAyLJ4NNS0QJ9oQn5zPHCcOOxa8ZnhSMYWHXYp--UXYb9IC5_YJbOKdcMhDVvHgz3wmrKCXYxanXh9ORl4NL0efiJxr3kadDMh0pLxaIHGth_hH0UIsh3ml73D2xbW4Q1Hdp8pvLP9onjSfDJnsFHTf9ZmAJSOwLUTI60pwIcs0fxGfs1GEISn_rFzxM0rD-KW-RNdUOUcGLoAehc" alt="日落时分平静的海面" />
+            </div>
+          </article>
+        </div>
+      </section>
 
-    <section class="showcase">
-      <div class="showcase-copy">
-        <h2>从开始到回看，都保持安静清晰。</h2>
-        <p>
-          首页负责把你带进今天的练习，统计页负责让你回头看见自己已经走了多远。
-          不需要复杂的信息层级，只保留能真正帮助你持续下去的内容。
-        </p>
+      <section class="section philosophy" id="philosophy">
+        <blockquote>“数字生活不是做得更多，而是在留下来的时刻里，更清楚地看见自己。”</blockquote>
+        <div class="divider"></div>
+        <div class="label">理念</div>
+      </section>
+
+      <section class="section" id="download">
+        <div class="cta-shell">
+          <div class="cta-grid">
+            <div class="cta-copy">
+              <h2>准备好开始一段更安静的日常了吗？</h2>
+              <p>从今天开始，让练习、记录和回看重新回到一个安静的节奏里。</p>
+              <div class="cta-actions">
+                <a class="cta-primary" data-download-button href="https://iveszhan.github.io/zensee-legal/support/">前往下载</a>
+                <a class="cta-secondary" href="../support/">联系支持</a>
+              </div>
+            </div>
+            <div class="phone-mockup-wrap">
+              <div class="phone-mockup">
+                <div class="phone-screen">
+                  <img src="../IMG_2400.PNG" alt="禅·见统计页面截图" />
+                  <div class="phone-screen-badge">
+                    <strong>今日回看</strong>
+                    <span>让坚持变得可见</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">禅·见</div>
+        <div class="footer-links">
+          <a href="../privacy-policy/">隐私政策</a>
+          <a href="../terms-of-service/">服务条款</a>
+          <a href="../support/">联系支持</a>
+        </div>
+        <div class="footer-meta">© 2026 禅·见。让数字生活慢下来。</div>
       </div>
-
-      <div class="showcase-stage" aria-hidden="true">
-        <div class="halo"></div>
-        <div class="note top">今日禅修 2 分钟</div>
-        <figure class="screen primary">
-          <img src="../IMG_2399.PNG" alt="禅·见首页截图" />
-        </figure>
-        <figure class="screen secondary">
-          <img src="../IMG_2400.PNG" alt="禅·见统计页截图" />
-        </figure>
-        <div class="note bottom">累计 71 分钟</div>
-      </div>
-    </section>
-
-    <div class="links">
-      <a href="../support/">支持</a>
-      <a href="../privacy-policy/">隐私政策</a>
-      <a href="../terms-of-service/">服务条款</a>
-    </div>
-  </main>
-
-  <div class="floating-download">
-    <a class="download-button" data-download-button href="https://iveszhan.github.io/zensee-legal/support/">前往下载</a>
+    </footer>
   </div>
 
   <script src="./config.js"></script>

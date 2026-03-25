@@ -21,7 +21,8 @@
     return "fallback";
   }
 
-  var primary = document.querySelector("[data-download-button]");
+  var buttons = document.querySelectorAll("[data-download-button]");
+  var primary = buttons.length > 0 ? buttons[0] : null;
   var pageFallback = primary ? primary.getAttribute("href") : "";
   var fallback = isConfigured(links.fallback) ? links.fallback :
     (isConfigured(pageFallback) ? pageFallback : "https://iveszhan.github.io/zensee-legal/support/");
@@ -30,7 +31,7 @@
   var platform = detectPlatform();
   var resolved = platform === "ios" ? iosLink : (platform === "android" ? androidLink : fallback);
 
-  if (primary) {
-    primary.href = resolved;
+  for (var i = 0; i < buttons.length; i += 1) {
+    buttons[i].href = resolved;
   }
 }());
