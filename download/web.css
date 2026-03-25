@@ -533,12 +533,12 @@ img {
 }
 
 .phone-mockup {
-  width: min(332px, 100%);
+  width: min(336px, 100%);
   padding: 4px;
   border-radius: 34px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.68);
-  box-shadow: 0 28px 56px rgba(57, 45, 32, 0.16);
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 28px 56px rgba(57, 45, 32, 0.14);
   transform: rotate(5deg);
 }
 
@@ -546,23 +546,19 @@ img {
   position: relative;
   overflow: hidden;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.92);
+  background: transparent;
 }
 
 .phone-screen img {
-  width: 112%;
-  max-width: none;
-  margin-left: -6%;
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   background: transparent;
 }
 
 .phone-screen::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(57, 45, 32, 0) 45%, rgba(57, 45, 32, 0.22) 100%);
+  content: none;
 }
 
 .phone-screen-badge {
