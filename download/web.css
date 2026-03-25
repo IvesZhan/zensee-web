@@ -651,32 +651,37 @@ img {
   html[lang="zh-Hant"] .hero-copy,
   html[lang="ja"] .hero-copy {
     width: fit-content;
-    max-width: min(100%, 560px);
+    max-width: none;
   }
 
   html[lang="zh-CN"] .hero-line,
   html[lang="zh-Hant"] .hero-line,
   html[lang="ja"] .hero-line {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
     max-width: none;
-    margin-bottom: 20px;
-    line-height: 1.04;
-    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    gap: 0.18em;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
   }
 
   html[lang="zh-CN"] .hero-line > span,
   html[lang="zh-Hant"] .hero-line > span,
   html[lang="ja"] .hero-line > span {
-    display: inline;
-    white-space: normal;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
     line-height: inherit;
   }
 
   html[lang="zh-CN"] .hero-line .small,
   html[lang="zh-Hant"] .hero-line .small,
   html[lang="ja"] .hero-line .small {
-    font-size: clamp(34px, 3vw, 46px);
-    color: rgba(57, 45, 32, 0.58);
+    font-size: clamp(40px, 3.4vw, 52px);
+    color: var(--primary);
     font-weight: 600;
     font-style: normal;
   }
@@ -684,8 +689,8 @@ img {
   html[lang="zh-CN"] .hero-line .medium,
   html[lang="zh-Hant"] .hero-line .medium,
   html[lang="ja"] .hero-line .medium {
-    font-size: clamp(34px, 3vw, 46px);
-    color: rgba(57, 45, 32, 0.58);
+    font-size: clamp(40px, 3.4vw, 52px);
+    color: var(--primary);
     font-weight: 600;
     font-style: normal;
   }
@@ -694,10 +699,21 @@ img {
   html[lang="zh-Hant"] .hero-line .large,
   html[lang="ja"] .hero-line .large {
     margin-top: 0;
-    font-size: clamp(34px, 3vw, 46px);
-    color: rgba(57, 45, 32, 0.58);
+    font-size: clamp(40px, 3.4vw, 52px);
+    color: var(--primary);
     font-weight: 600;
     font-style: normal;
+  }
+
+  html[lang="zh-CN"] .hero-line .sep,
+  html[lang="zh-Hant"] .hero-line .sep,
+  html[lang="ja"] .hero-line .sep {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72em;
+    color: var(--primary);
+    transform: translateY(-0.02em);
   }
 
   html[lang="zh-CN"] .hero-copy p,
@@ -705,7 +721,9 @@ img {
   html[lang="ja"] .hero-copy p {
     width: 100%;
     max-width: none;
-    line-height: 1.6;
+    margin-top: 10px;
+    color: var(--muted);
+    line-height: 1.7;
   }
 }
 
