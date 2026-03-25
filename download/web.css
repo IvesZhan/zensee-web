@@ -844,17 +844,19 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 38px;
-    padding: 0 14px;
+    min-height: 42px;
+    padding: 0 16px;
     border-radius: 999px;
     background: var(--brand-accent);
     color: #fff;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow:
-      0 14px 26px rgba(57, 45, 32, 0.18),
-      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      0 18px 30px rgba(57, 45, 32, 0.22),
+      0 6px 10px rgba(57, 45, 32, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 
   .section {
@@ -934,18 +936,22 @@ img {
   .mobile-download {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     gap: 10px;
   }
 
   .mobile-download .primary-button {
-    width: 100%;
-    min-height: 56px;
-    padding: 16px 20px;
-    font-size: 16px;
+    width: min(100%, 336px);
+    min-height: 60px;
+    padding: 18px 24px;
+    font-size: 17px;
+    font-weight: 700;
     background: var(--brand-accent);
     color: #fff;
-    box-shadow: 0 18px 34px rgba(57, 45, 32, 0.18);
+    box-shadow:
+      0 20px 36px rgba(57, 45, 32, 0.2),
+      0 8px 14px rgba(57, 45, 32, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
   .mobile-download .supporting-note {
@@ -1138,32 +1144,33 @@ img {
   }
 
   .cta-copy {
-    text-align: center;
+    text-align: left;
   }
 
   .cta-copy h2 {
     font-size: 28px;
     line-height: 1.16;
+    color: #fff;
   }
 
   .cta-copy p {
     max-width: none;
     font-size: 15px;
     line-height: 1.72;
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.76);
   }
 
   .cta-actions {
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 20px;
   }
 
   .cta-primary {
     display: inline-flex;
     width: 100%;
-    background: var(--brand-accent);
-    color: #fff;
-    box-shadow: 0 18px 30px rgba(57, 45, 32, 0.16);
+    background: #fff;
+    color: var(--text);
+    box-shadow: 0 18px 30px rgba(57, 45, 32, 0.14);
   }
 
   .cta-secondary {
