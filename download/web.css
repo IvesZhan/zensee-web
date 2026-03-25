@@ -1163,7 +1163,7 @@ img {
   }
 
   .cta-actions {
-    display: none;
+    display: flex;
   }
 
   .cta-primary {
