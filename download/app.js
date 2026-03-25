@@ -53,6 +53,16 @@
       continue;
     }
 
+    if (platform === "android" && !androidReady) {
+      button.href = androidLink;
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        var message = this.getAttribute("data-coming-soon") || "Coming soon";
+        window.alert(message);
+      });
+      continue;
+    }
+
     button.href = resolved;
   }
 }());
