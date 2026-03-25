@@ -428,6 +428,11 @@ img {
   font-weight: 400;
 }
 
+.philosophy blockquote strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
 .philosophy .divider {
   width: 64px;
   height: 1px;
@@ -528,9 +533,9 @@ img {
 }
 
 .phone-mockup {
-  width: min(320px, 100%);
-  padding: 6px;
-  border-radius: 38px;
+  width: min(332px, 100%);
+  padding: 14px;
+  border-radius: 48px;
   background: #2d2419;
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.24);
   transform: rotate(5deg);
@@ -539,14 +544,15 @@ img {
 .phone-screen {
   position: relative;
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 34px;
   background: #f8f3eb;
 }
 
 .phone-screen img {
   width: 100%;
   aspect-ratio: 9 / 16;
-  object-fit: cover;
+  object-fit: contain;
+  background: #19140f;
 }
 
 .phone-screen::after {
@@ -753,48 +759,39 @@ img {
   }
 
   .philosophy {
-    padding-top: 144px;
-    padding-bottom: 18px;
-  }
-
-  .philosophy::before {
-    content: "“";
-    position: absolute;
-    top: 82px;
-    left: 6%;
-    color: rgba(57, 45, 32, 0.08);
-    font-family: var(--font-display);
-    font-size: 78px;
-    line-height: 1;
+    padding-top: 132px;
+    padding-bottom: 12px;
   }
 
   .philosophy::after {
     content: "";
     position: absolute;
-    inset: 34px 10% 0;
-    background: radial-gradient(circle at center, rgba(247, 223, 196, 0.36), transparent 62%);
+    inset: 26px 4% 0;
+    background: radial-gradient(circle at center, rgba(247, 223, 196, 0.32), transparent 64%);
     z-index: -1;
     pointer-events: none;
   }
 
   .philosophy blockquote {
-    max-width: 840px;
-    font-size: clamp(36px, 3.7vw, 62px);
-    line-height: 1.12;
+    max-width: 1120px;
+    font-size: clamp(42px, 4.4vw, 72px);
+    line-height: 1.1;
     letter-spacing: -0.03em;
     font-style: normal;
   }
 
   .philosophy .divider {
-    width: 52px;
-    margin: 34px auto 16px;
-    background: rgba(57, 45, 32, 0.14);
+    width: 72px;
+    height: 2px;
+    margin: 38px auto 18px;
+    background: rgba(57, 45, 32, 0.26);
   }
 
   .philosophy .label {
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    color: rgba(57, 45, 32, 0.5);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    color: rgba(57, 45, 32, 0.72);
   }
 }
 
