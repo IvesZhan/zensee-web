@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="ja">
+<html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>禅·見 ダウンロード</title>
-  <meta name="description" content="禅·見は静かに続けられる禅修・瞑想アプリです。ダウンロードして、毎日の練習を始めましょう。" />
+  <title>禪·見 下載</title>
+  <meta name="description" content="禪·見是一款安靜克制的禪修練習應用。點擊前往下載，開始你的靜心時刻。" />
   <meta name="theme-color" content="#f6f1e9" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="禅·見 ダウンロード" />
-  <meta property="og:description" content="静かな実践を、毎日戻りたくなる場所に。" />
-  <meta property="og:url" content="https://iveszhan.github.io/zensee-legal/download/ja/" />
+  <meta property="og:title" content="禪·見 下載" />
+  <meta property="og:description" content="把靜心練習留在每天都想回來的地方。" />
+  <meta property="og:url" content="https://iveszhan.github.io/zensee-legal/download/zh-hant/" />
   <meta property="og:image" content="https://iveszhan.github.io/zensee-legal/IMG_2399.PNG" />
   <meta name="twitter:card" content="summary_large_image" />
   <style>
@@ -31,6 +31,7 @@
     }
 
     * { box-sizing: border-box; }
+
     html {
       min-height: 100%;
       background-color: var(--bg);
@@ -38,16 +39,19 @@
         radial-gradient(circle at 50% 0%, rgba(232, 222, 209, 0.82), transparent 42%),
         linear-gradient(180deg, #fbf7f1 0%, #f6f1e9 48%, #f2ece4 100%);
     }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      font-family: "PingFang TC", "PingFang SC", "Helvetica Neue", sans-serif;
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
       background-color: var(--bg);
     }
-    body::before, body::after {
+
+    body::before,
+    body::after {
       content: "";
       position: fixed;
       left: 50%;
@@ -57,35 +61,49 @@
       pointer-events: none;
       z-index: -1;
     }
+
     body::before {
       top: calc(env(safe-area-inset-top) + 24px);
       width: min(88vw, 720px);
       height: min(88vw, 720px);
     }
+
     body::after {
       top: -40px;
       width: min(120vw, 1020px);
       height: min(120vw, 1020px);
       opacity: 0.68;
     }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
     .page {
       width: var(--container);
       margin: 0 auto;
       padding: calc(env(safe-area-inset-top) + 22px) 0 calc(env(safe-area-inset-bottom) + 112px);
     }
+
     .hero {
       display: grid;
       gap: 22px;
       align-items: center;
     }
+
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
       margin-bottom: 16px;
     }
+
     .brand-mark {
       width: 62px;
       height: 62px;
@@ -96,23 +114,27 @@
       place-items: center;
       flex: 0 0 auto;
     }
+
     .brand-mark img {
       width: 34px;
       height: 34px;
       object-fit: contain;
     }
+
     .brand-copy strong {
       display: block;
       font-size: 20px;
       font-weight: 700;
       letter-spacing: 0.01em;
     }
+
     .brand-copy span {
       display: block;
       color: var(--muted);
       font-size: 13px;
       margin-top: 2px;
     }
+
     .kicker {
       margin: 0 0 10px;
       color: var(--accent-strong);
@@ -121,26 +143,30 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
+
     .hero-copy h1 {
       margin: 0 0 12px;
-      font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-      font-size: clamp(28px, 5vw, 48px);
+      font-family: "Songti TC", "Songti SC", serif;
+      font-size: clamp(28px, 6vw, 52px);
       line-height: 1.12;
       letter-spacing: -0.03em;
-      max-width: 12ch;
+      max-width: 10ch;
     }
+
     .hero-copy p {
       margin: 0;
       max-width: 34rem;
       color: var(--muted);
       font-size: 15px;
     }
+
     .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 18px;
     }
+
     .tag {
       padding: 9px 14px;
       border-radius: 999px;
@@ -152,6 +178,7 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
+
     .intro-panel {
       padding: 18px;
       border-radius: var(--radius-xl);
@@ -159,22 +186,26 @@
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
     }
+
     .intro-panel strong {
       display: block;
       color: var(--accent-strong);
       font-size: 16px;
       margin-bottom: 8px;
     }
+
     .intro-panel p {
       margin: 0;
       color: var(--muted);
       font-size: 14px;
     }
+
     .features {
       display: grid;
       gap: 14px;
       margin-top: 24px;
     }
+
     .feature {
       padding: 18px;
       border-radius: var(--radius-lg);
@@ -182,6 +213,7 @@
       border: 1px solid var(--line);
       box-shadow: 0 14px 24px rgba(118, 99, 78, 0.06);
     }
+
     .feature strong {
       display: block;
       font-size: 17px;
@@ -189,30 +221,35 @@
       margin-bottom: 6px;
       color: var(--accent-strong);
     }
+
     .feature p {
       margin: 0;
       color: var(--muted);
       font-size: 14px;
     }
+
     .showcase {
       display: grid;
       gap: 18px;
       margin-top: 30px;
       align-items: center;
     }
+
     .showcase-copy h2 {
       margin: 0 0 10px;
-      font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+      font-family: "Songti TC", "Songti SC", serif;
       font-size: clamp(24px, 4vw, 34px);
-      line-height: 1.16;
+      line-height: 1.18;
       letter-spacing: -0.02em;
     }
+
     .showcase-copy p {
       margin: 0;
       max-width: 34rem;
       color: var(--muted);
       font-size: 15px;
     }
+
     .showcase-stage {
       position: relative;
       min-height: 390px;
@@ -225,6 +262,7 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
+
     .showcase-stage::before {
       content: "";
       position: absolute;
@@ -232,6 +270,7 @@
       border-radius: 30px;
       border: 1px solid rgba(157, 137, 114, 0.08);
     }
+
     .halo {
       position: absolute;
       inset: auto 14% 10% 14%;
@@ -239,6 +278,7 @@
       background: radial-gradient(circle, rgba(157, 137, 114, 0.22), rgba(157, 137, 114, 0) 72%);
       filter: blur(8px);
     }
+
     .screen {
       position: absolute;
       border-radius: 28px;
@@ -247,22 +287,26 @@
       border: 1px solid rgba(157, 137, 114, 0.14);
       box-shadow: 0 18px 34px rgba(118, 99, 78, 0.14);
     }
+
     .screen img {
       width: 100%;
       height: auto;
     }
+
     .screen.primary {
       width: min(54%, 290px);
       right: 32px;
       top: 28px;
       transform: rotate(6deg);
     }
+
     .screen.secondary {
       width: min(42%, 220px);
       left: 28px;
       bottom: 28px;
       transform: rotate(-8deg);
     }
+
     .note {
       position: absolute;
       padding: 10px 14px;
@@ -275,14 +319,17 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
+
     .note.top {
       left: 28px;
       top: 26px;
     }
+
     .note.bottom {
       right: 26px;
       bottom: 24px;
     }
+
     .links {
       display: flex;
       justify-content: center;
@@ -292,11 +339,13 @@
       color: var(--muted);
       font-size: 13px;
     }
+
     .links a {
       text-decoration: underline;
       text-decoration-color: rgba(143, 125, 109, 0.3);
       text-underline-offset: 3px;
     }
+
     .floating-download {
       position: fixed;
       left: 50%;
@@ -304,6 +353,7 @@
       transform: translateX(-50%);
       z-index: 20;
     }
+
     .download-button {
       display: inline-flex;
       align-items: center;
@@ -318,13 +368,16 @@
       font-weight: 700;
       box-shadow: 0 14px 26px rgba(126, 107, 87, 0.24);
     }
+
     @media (min-width: 760px) {
       .hero {
         grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
       }
+
       .features {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+
       .showcase {
         grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
       }
@@ -337,76 +390,85 @@
       <div class="hero-copy">
         <div class="brand">
           <div class="brand-mark">
-            <img src="../../MeditationIcon.png" alt="禅·見 App Icon" />
+            <img src="../../MeditationIcon.png" alt="禪·見 App Icon" />
           </div>
           <div class="brand-copy">
-            <strong>禅·見</strong>
-            <span>禅修の記録と静かな実践</span>
+            <strong>禪·見</strong>
+            <span>禪修記錄與靜心練習</span>
           </div>
         </div>
-        <p class="kicker">相にとらわれず、静かにそのままで。</p>
-        <h1>静かな実践を、毎日戻りたくなる場所に。</h1>
+
+        <p class="kicker">不取於相，如如不動。</p>
+        <h1>把靜心練習留在每天都想回來的地方。</h1>
         <p>
-          禅·見は、禅修の実践、状態の記録、長期的な振り返りをひとつの静かな場所にまとめ、
-          毎日の数分間を無理なく続けられる習慣へと整えてくれます。
+          禪·見把禪修練習、狀態記錄與長期統計放進一個安靜克制的空間裡，
+          讓每天幾分鐘的停下來，不只是片刻休息，而是逐漸穩定下來的節奏。
         </p>
+
         <div class="tag-list" aria-label="highlights">
-          <span class="tag">やさしく始める</span>
-          <span class="tag">日々を記録する</span>
-          <span class="tag">長く振り返る</span>
+          <span class="tag">輕量開始</span>
+          <span class="tag">每日記錄</span>
+          <span class="tag">長期回看</span>
         </div>
       </div>
+
       <aside class="intro-panel">
-        <strong>静かな入口、見返しやすい流れ</strong>
+        <strong>一個更安靜的練習入口</strong>
         <p>
-          ホーム画面から今日の実践を始め、統計画面で自分の変化を静かに見返せます。
-          情報を増やしすぎず、続けるために必要なものだけを残しています。
+          從首頁開始今天的靜坐，在回看中看到自己的節奏變化。
+          頁面和互動都盡量克制，只把真正需要留下的內容放在前面。
         </p>
       </aside>
     </section>
+
     <section class="features">
       <article class="feature">
-        <strong>少しずつ始める</strong>
-        <p>短い実践から始められるので、気負わずに静かな時間を日常へ取り入れられます。</p>
+        <strong>從少開始</strong>
+        <p>不用複雜設定，從幾分鐘開始，讓真正開始這件事變得更容易。</p>
       </article>
       <article class="feature">
-        <strong>状態を残す</strong>
-        <p>その日の感覚やリズムを記録しておくことで、自分に戻るための手がかりが増えていきます。</p>
+        <strong>把狀態留下來</strong>
+        <p>每天的練習、感受和節奏都能沉澱下來，不再只停留在當下。</p>
       </article>
       <article class="feature">
-        <strong>積み重ねを知る</strong>
-        <p>実践が続くほど、どのように整ってきたかを静かに見つめ直せるようになります。</p>
+        <strong>看見長期變化</strong>
+        <p>當記錄不斷累積，你會更清楚自己如何慢慢穩定下來。</p>
       </article>
     </section>
+
     <section class="showcase">
       <div class="showcase-copy">
-        <h2>始めるときも、振り返るときも、静かで明快に。</h2>
+        <h2>從開始到回看，都保持安靜清晰。</h2>
         <p>
-          今日の実践に入る画面と、積み重なりを見返す画面を大きく分けながら、
-          全体としてはひとつの落ち着いたリズムに揃えています。
+          首頁負責把你帶進今天的練習，統計頁負責讓你回頭看見自己已經走了多遠。
+          不需要複雜的資訊層級，只保留能真正幫助你持續下去的內容。
         </p>
       </div>
+
       <div class="showcase-stage" aria-hidden="true">
         <div class="halo"></div>
-        <div class="note top">今日 2 分</div>
+        <div class="note top">今日禪修 2 分鐘</div>
         <figure class="screen primary">
-          <img src="../../IMG_2399.PNG" alt="禅·見ホーム画面" />
+          <img src="../../IMG_2399.PNG" alt="禪·見首頁截圖" />
         </figure>
         <figure class="screen secondary">
-          <img src="../../IMG_2400.PNG" alt="禅·見統計画面" />
+          <img src="../../IMG_2400.PNG" alt="禪·見統計頁截圖" />
         </figure>
-        <div class="note bottom">累計 71 分</div>
+        <div class="note bottom">累計 71 分鐘</div>
       </div>
     </section>
+
     <div class="links">
-      <a href="../../support/ja/">サポート</a>
-      <a href="../../privacy-policy/ja/">プライバシーポリシー</a>
-      <a href="../../terms-of-service/ja/">利用規約</a>
+      <a href="../../support/">支援</a>
+      <a href="../../privacy-policy/">隱私政策</a>
+      <a href="../../terms-of-service/">服務條款</a>
     </div>
   </main>
+
   <div class="floating-download">
-    <a class="download-button" data-download-button href="https://iveszhan.github.io/zensee-legal/support/ja/">ダウンロードへ</a>
+    <a class="download-button" data-download-button href="https://iveszhan.github.io/zensee-legal/support/">前往下載</a>
   </div>
+
   <script src="../config.js"></script>
   <script src="../app.js"></script>
 </body>

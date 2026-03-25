@@ -17,6 +17,7 @@ Then upload the contents of this folder to the root of that repository.
 - `support/index.html`
 - `download/index.html`
 - `download/en/index.html`
+- `download/zh-hant/index.html`
 - `download/ja/index.html`
 - `.nojekyll`
 
@@ -41,6 +42,7 @@ If the repository is a project site repo such as `zensee-legal`:
 - `https://<github-username>.github.io/zensee-legal/support/`
 - `https://<github-username>.github.io/zensee-legal/download/`
 - `https://<github-username>.github.io/zensee-legal/download/en/`
+- `https://<github-username>.github.io/zensee-legal/download/zh-hant/`
 - `https://<github-username>.github.io/zensee-legal/download/ja/`
 
 If the repository is a user site repo such as `<github-username>.github.io`:
@@ -50,6 +52,7 @@ If the repository is a user site repo such as `<github-username>.github.io`:
 - `https://<github-username>.github.io/support/`
 - `https://<github-username>.github.io/download/`
 - `https://<github-username>.github.io/download/en/`
+- `https://<github-username>.github.io/download/zh-hant/`
 - `https://<github-username>.github.io/download/ja/`
 
 ## Notes
