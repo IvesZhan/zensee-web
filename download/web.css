@@ -925,6 +925,8 @@ img {
 
   .hero-actions {
     display: block;
+    width: 100%;
+    align-self: stretch;
     margin-top: 22px;
   }
 
