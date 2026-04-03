@@ -25,24 +25,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:wght@400;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../shared-header.css" />
   <link rel="stylesheet" href="../web.css" />
 </head>
 <body>
   <div class="page-shell" id="top">
-    <nav class="nav">
-      <div class="nav-inner">
-        <div class="brand-lockup">
-          <div class="brand-icon">
-            <img src="../../MeditationIcon.png" alt="ZenSee App Icon" />
-          </div>
-          <div class="brand-text">
-            <strong>ZenSee</strong>
-            <span>グループ招待</span>
-          </div>
-        </div>
-        <a class="nav-cta" data-download-button href="../../support/ja/">アプリをダウンロード</a>
-      </div>
-    </nav>
+    <div
+      id="shared-header"
+      data-header-locale="ja"
+      data-header-home-url="../../download/ja/"
+      data-header-support-url="https://iveszhan.github.io/zensee-web/support/ja/"
+      data-header-icon-src="../../MeditationIcon.png"
+      data-header-coming-soon="Android版は開発中です"
+    ></div>
 
     <main class="page-main">
       <section class="group-hero" id="content-state">
@@ -75,6 +70,7 @@
   </div>
 
   <script src="../../download/config.js"></script>
+  <script src="../../shared-header.js"></script>
   <script src="../../download/app.js"></script>
   <script src="../config.js"></script>
   <script src="../app.js"></script>

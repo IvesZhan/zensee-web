@@ -20,29 +20,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:wght@400;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../shared-header.css" />
   <link rel="stylesheet" href="../web.css" />
 </head>
 <body>
   <div class="page-shell" id="top">
-    <nav class="nav">
-      <div class="nav-inner">
-        <div class="brand-lockup">
-          <div class="brand-icon">
-            <img src="../../MeditationIcon.png" alt="ZenSee App Icon" />
-          </div>
-          <div class="brand-text">
-            <strong>ZenSee</strong>
-            <span>Curating digital peace</span>
-          </div>
-        </div>
-        <div class="nav-links">
-          <a href="#experience">Experience</a>
-          <a href="#features">Features</a>
-          <a href="#philosophy">Philosophy</a>
-        </div>
-        <a class="mobile-nav-link" data-download-button data-coming-soon="Android version is in development" href="https://iveszhan.github.io/zensee-web/support/en/">Download App</a>
-      </div>
-    </nav>
+    <div
+      id="shared-header"
+      data-header-locale="en"
+      data-header-home-url="./"
+      data-header-support-url="https://iveszhan.github.io/zensee-web/support/en/"
+      data-header-icon-src="../../MeditationIcon.png"
+      data-header-coming-soon="Android version is in development"
+    ></div>
 
     <main>
       <section class="section hero" id="experience">
@@ -171,6 +161,7 @@
   </div>
 
   <script src="../config.js"></script>
+  <script src="../../shared-header.js"></script>
   <script src="../app.js"></script>
 </body>
 </html>

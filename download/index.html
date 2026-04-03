@@ -41,29 +41,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:wght@400;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared-header.css" />
   <link rel="stylesheet" href="./web.css" />
 </head>
 <body>
   <div class="page-shell" id="top">
-    <nav class="nav">
-      <div class="nav-inner">
-        <div class="brand-lockup">
-          <div class="brand-icon">
-            <img src="../MeditationIcon.png" alt="禅·见 App Icon" />
-          </div>
-          <div class="brand-text">
-            <strong>禅·见</strong>
-            <span>禅修记录与静心练习</span>
-          </div>
-        </div>
-        <div class="nav-links">
-          <a href="#experience">体验</a>
-          <a href="#features">功能</a>
-          <a href="#philosophy">理念</a>
-        </div>
-        <a class="mobile-nav-link" data-download-button data-coming-soon="Android 版本正在开发中" href="https://iveszhan.github.io/zensee-web/support/">下载APP</a>
-      </div>
-    </nav>
+    <div
+      id="shared-header"
+      data-header-locale="zh-cn"
+      data-header-home-url="./"
+      data-header-support-url="https://iveszhan.github.io/zensee-web/support/"
+      data-header-icon-src="../MeditationIcon.png"
+      data-header-coming-soon="Android 版本正在开发中"
+    ></div>
 
     <main>
       <section class="section hero" id="experience">
@@ -194,6 +184,7 @@
   </div>
 
   <script src="./config.js"></script>
+  <script src="../shared-header.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
