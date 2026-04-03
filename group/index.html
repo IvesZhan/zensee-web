@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN" data-locale-root="group">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f1e8" />
+  <title>群组详情</title>
+  <meta name="description" content="打开 ZenSee 群组邀请链接，查看群组详情并加入群组。" />
+  <link rel="icon" type="image/png" href="../download/brand-favicon.png?v=1" />
+  <link rel="apple-touch-icon" href="../download/brand-favicon.png?v=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:wght@400;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./web.css" />
+  <script src="../legal-locale.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <div class="brand-icon">
+          <img src="../download/brand-favicon.png" alt="ZenSee App Icon" />
+        </div>
+        <div class="brand-copy">
+          <strong>禅·见</strong>
+          <span>群组邀请</span>
+        </div>
+      </div>
+      <a class="download-link" href="../download/">下载 APP</a>
+    </header>
+
+    <main class="page-main">
+      <section class="group-hero" id="content-state">
+        <div class="hero-status" id="page-status">正在载入群组详情…</div>
+        <h1 id="group-name">群组详情</h1>
+        <p id="group-description">正在读取这张群组邀请卡片中的公开信息。</p>
+
+        <div class="meta-grid">
+          <article class="meta-card">
+            <span>群主</span>
+            <strong id="group-owner">禅友</strong>
+          </article>
+          <article class="meta-card">
+            <span>群组 ID</span>
+            <code id="group-id">-</code>
+          </article>
+          <article class="meta-card">
+            <span>当前成员</span>
+            <strong id="member-count">0</strong>
+          </article>
+          <article class="meta-card">
+            <span>今日完成</span>
+            <strong id="active-count">0</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="member-grid">
+        <article class="member-panel" id="inactive-panel">
+          <h2 data-section-title>尚未禅修</h2>
+          <div class="member-list" id="inactive-members"></div>
+        </article>
+        <article class="member-panel" id="active-panel">
+          <h2 data-section-title>完成禅修</h2>
+          <div class="member-list" id="active-members"></div>
+        </article>
+      </section>
+
+      <section class="error-state" id="error-state" hidden>
+        <h2 id="error-title">下载 ZenSee</h2>
+        <p id="error-body">当前无法读取群组详情，你仍然可以下载 ZenSee 并稍后重试。</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="join-bar">
+    <div class="join-bar-inner">
+      <button class="join-button" id="join-button" type="button">加入群组</button>
+      <p class="join-hint" id="join-hint">如未安装 App，将跳转到下载页。</p>
+    </div>
+  </div>
+
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

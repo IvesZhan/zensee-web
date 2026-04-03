@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f1e8" />
+  <title>グループ詳細</title>
+  <meta name="description" content="ZenSee の招待リンクを開き、グループ詳細を確認してアプリから参加できます。" />
+  <link rel="icon" type="image/png" href="../../download/brand-favicon.png?v=1" />
+  <link rel="apple-touch-icon" href="../../download/brand-favicon.png?v=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:wght@400;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../web.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <div class="brand-icon">
+          <img src="../../download/brand-favicon.png" alt="ZenSee App Icon" />
+        </div>
+        <div class="brand-copy">
+          <strong>ZenSee</strong>
+          <span>グループ招待</span>
+        </div>
+      </div>
+      <a class="download-link" href="../../download/ja/">アプリをダウンロード</a>
+    </header>
+
+    <main class="page-main">
+      <section class="group-hero" id="content-state">
+        <div class="hero-status" id="page-status">グループ詳細を読み込み中…</div>
+        <h1 id="group-name">グループ詳細</h1>
+        <p id="group-description">この招待カードに含まれる公開グループ情報を読み込んでいます。</p>
+
+        <div class="meta-grid">
+          <article class="meta-card">
+            <span>グループ主</span>
+            <strong id="group-owner">禅友</strong>
+          </article>
+          <article class="meta-card">
+            <span>グループ ID</span>
+            <code id="group-id">-</code>
+          </article>
+          <article class="meta-card">
+            <span>メンバー数</span>
+            <strong id="member-count">0</strong>
+          </article>
+          <article class="meta-card">
+            <span>本日のチェックイン</span>
+            <strong id="active-count">0</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="member-grid">
+        <article class="member-panel" id="inactive-panel">
+          <h2 data-section-title>未修行</h2>
+          <div class="member-list" id="inactive-members"></div>
+        </article>
+        <article class="member-panel" id="active-panel">
+          <h2 data-section-title>修行完了</h2>
+          <div class="member-list" id="active-members"></div>
+        </article>
+      </section>
+
+      <section class="error-state" id="error-state" hidden>
+        <h2 id="error-title">ZenSee をダウンロード</h2>
+        <p id="error-body">現在グループ詳細を読み込めません。後でもう一度お試しください。</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="join-bar">
+    <div class="join-bar-inner">
+      <button class="join-button" id="join-button" type="button">グループに参加</button>
+      <p class="join-hint" id="join-hint">App が未インストールの場合はダウンロードページへ移動します。</p>
+    </div>
+  </div>
+
+  <script src="../config.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

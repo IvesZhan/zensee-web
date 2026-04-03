@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f1e8" />
+  <title>Group Details</title>
+  <meta name="description" content="Open a ZenSee invitation link, review the group details, and join the group in the app." />
+  <link rel="icon" type="image/png" href="../../download/brand-favicon.png?v=1" />
+  <link rel="apple-touch-icon" href="../../download/brand-favicon.png?v=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:wght@400;700;800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../web.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <div class="brand-icon">
+          <img src="../../download/brand-favicon.png" alt="ZenSee App Icon" />
+        </div>
+        <div class="brand-copy">
+          <strong>ZenSee</strong>
+          <span>Group Invitation</span>
+        </div>
+      </div>
+      <a class="download-link" href="../../download/en/">Download App</a>
+    </header>
+
+    <main class="page-main">
+      <section class="group-hero" id="content-state">
+        <div class="hero-status" id="page-status">Loading group details…</div>
+        <h1 id="group-name">Group Details</h1>
+        <p id="group-description">Reading the public details attached to this invitation card.</p>
+
+        <div class="meta-grid">
+          <article class="meta-card">
+            <span>Owner</span>
+            <strong id="group-owner">Zen Friend</strong>
+          </article>
+          <article class="meta-card">
+            <span>Group ID</span>
+            <code id="group-id">-</code>
+          </article>
+          <article class="meta-card">
+            <span>Members</span>
+            <strong id="member-count">0</strong>
+          </article>
+          <article class="meta-card">
+            <span>Checked In Today</span>
+            <strong id="active-count">0</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="member-grid">
+        <article class="member-panel" id="inactive-panel">
+          <h2 data-section-title>Not Checked In Yet</h2>
+          <div class="member-list" id="inactive-members"></div>
+        </article>
+        <article class="member-panel" id="active-panel">
+          <h2 data-section-title>Checked In Today</h2>
+          <div class="member-list" id="active-members"></div>
+        </article>
+      </section>
+
+      <section class="error-state" id="error-state" hidden>
+        <h2 id="error-title">Download ZenSee</h2>
+        <p id="error-body">Group details are unavailable right now. You can still download ZenSee and try again later.</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="join-bar">
+    <div class="join-bar-inner">
+      <button class="join-button" id="join-button" type="button">Join group</button>
+      <p class="join-hint" id="join-hint">If the app is not installed, you will be redirected to the download page.</p>
+    </div>
+  </div>
+
+  <script src="../config.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>
