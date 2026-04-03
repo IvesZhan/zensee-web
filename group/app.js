@@ -300,8 +300,10 @@
     overlay.innerHTML = [
       '<div class="in-app-browser-guide" role="dialog" aria-modal="true" aria-label="' + escapeHtml(copy.openBrowserAction) + '">',
       '<div class="in-app-browser-arrow" aria-hidden="true">',
-      '<span class="in-app-browser-arrow-line"></span>',
-      '<span class="in-app-browser-arrow-head"></span>',
+      '<svg class="in-app-browser-arrow-svg" viewBox="0 0 120 96" fill="none" xmlns="http://www.w3.org/2000/svg">',
+      '<path d="M18 82C18 46 42 28 68 30C88 32 98 46 96 60C94 74 80 80 68 74C57 68 56 55 66 46C77 36 93 36 104 38L104 16" />',
+      '<path d="M90 28L104 14L118 28" />',
+      "</svg>",
       "</div>",
       '<div class="in-app-browser-copy">',
       "<strong>" + escapeHtml(copy.openBrowserHint) + "</strong>",
