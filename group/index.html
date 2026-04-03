@@ -2,8 +2,11 @@
 <html lang="zh-CN" data-locale-root="group">
 <head>
   <meta charset="utf-8" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f7f1e8" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fef9f1" />
+  <meta name="theme-color" content="#fef9f1" />
   <title>群组详情</title>
   <meta name="description" content="打开 ZenSee 群组邀请链接，查看群组详情并加入群组。" />
   <meta property="og:type" content="website" />
@@ -26,55 +29,38 @@
   <script src="../legal-locale.js" defer></script>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="brand-lockup">
-        <div class="brand-icon">
-          <img src="../download/brand-favicon.png" alt="ZenSee App Icon" />
+  <div class="page-shell" id="top">
+    <nav class="nav">
+      <div class="nav-inner">
+        <div class="brand-lockup">
+          <div class="brand-icon">
+            <img src="../MeditationIcon.png" alt="禅·见 App Icon" />
+          </div>
+          <div class="brand-text">
+            <strong>禅·见</strong>
+            <span>群组邀请</span>
+          </div>
         </div>
-        <div class="brand-copy">
-          <strong>禅·见</strong>
-          <span>群组邀请</span>
-        </div>
+        <a class="nav-cta" data-download-button data-coming-soon="Android 版本正在开发中" href="../support/">下载APP</a>
       </div>
-      <a class="download-link" href="../download/">下载 APP</a>
-    </header>
+    </nav>
 
     <main class="page-main">
       <section class="group-hero" id="content-state">
         <div class="hero-status" id="page-status">正在载入群组详情…</div>
         <h1 id="group-name">群组详情</h1>
-        <p id="group-description">正在读取这张群组邀请卡片中的公开信息。</p>
-
-        <div class="meta-grid">
-          <article class="meta-card">
-            <span>群主</span>
-            <strong id="group-owner">禅友</strong>
-          </article>
-          <article class="meta-card">
-            <span>群组 ID</span>
-            <code id="group-id">-</code>
-          </article>
-          <article class="meta-card">
-            <span>当前成员</span>
-            <strong id="member-count">0</strong>
-          </article>
-          <article class="meta-card">
-            <span>今日完成</span>
-            <strong id="active-count">0</strong>
-          </article>
+        <div class="owner-pill">
+          <span>群主</span>
+          <strong id="group-owner">禅友</strong>
+        </div>
+        <div class="description-card">
+          <p id="group-description">正在读取这张群组邀请卡片中的公开信息。</p>
         </div>
       </section>
 
-      <section class="member-grid">
-        <article class="member-panel" id="inactive-panel">
-          <h2 data-section-title>尚未禅修</h2>
-          <div class="member-list" id="inactive-members"></div>
-        </article>
-        <article class="member-panel" id="active-panel">
-          <h2 data-section-title>完成禅修</h2>
-          <div class="member-list" id="active-members"></div>
-        </article>
+      <section class="members-section" id="members-section" hidden>
+        <h2>当前成员</h2>
+        <div class="member-list" id="member-list"></div>
       </section>
 
       <section class="error-state" id="error-state" hidden>
@@ -87,10 +73,11 @@
   <div class="join-bar">
     <div class="join-bar-inner">
       <button class="join-button" id="join-button" type="button">加入群组</button>
-      <p class="join-hint" id="join-hint">如未安装 App，将跳转到下载页。</p>
     </div>
   </div>
 
+  <script src="../download/config.js"></script>
+  <script src="../download/app.js"></script>
   <script src="./config.js"></script>
   <script src="./app.js"></script>
 </body>
