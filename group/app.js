@@ -13,7 +13,6 @@
     status: document.getElementById("page-status"),
     title: document.getElementById("group-name"),
     description: document.getElementById("group-description"),
-    owner: document.getElementById("group-owner"),
     ownerLine: document.getElementById("group-owner-line"),
     membersSection: document.getElementById("members-section"),
     memberList: document.getElementById("member-list"),
@@ -177,7 +176,8 @@
       state.snapshot = snapshots[0];
       state.members = members;
       renderGroup();
-    }).catch(function () {
+    }).catch(function (error) {
+      console.error("[group-page] failed to render group", error);
       renderError(copy.loadFailed);
     });
   }
@@ -202,7 +202,6 @@
     elements.status.textContent = copy.publicBadge;
     elements.title.textContent = snapshot.name;
     elements.description.textContent = trimmed(snapshot.description) || copy.defaultDescription;
-    elements.owner.textContent = snapshot.owner_name || copy.unknownOwner;
     if (elements.ownerLine) {
       elements.ownerLine.textContent = format(copy.ownerLine, snapshot.owner_name || copy.unknownOwner);
     }
