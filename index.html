@@ -25,13 +25,7 @@
   <script>
     (() => {
       const isSmallScreen = window.matchMedia("(max-width: 760px)").matches;
-      const navigationEntry = performance.getEntriesByType
-        ? performance.getEntriesByType("navigation")[0]
-        : null;
-      const shouldResetScroll =
-        isSmallScreen &&
-        !window.location.hash &&
-        (!navigationEntry || navigationEntry.type === "navigate");
+      const shouldResetScroll = isSmallScreen && !window.location.hash;
 
       if (!shouldResetScroll) {
         return;
@@ -49,6 +43,8 @@
         });
       };
 
+      window.addEventListener("DOMContentLoaded", resetToTop, { once: true });
+      window.addEventListener("load", resetToTop, { once: true });
       window.addEventListener("pageshow", resetToTop, { once: true });
     })();
   </script>
