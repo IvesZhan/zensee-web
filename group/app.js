@@ -61,8 +61,7 @@
         ownerRole: "群主",
         memberRole: "成员",
         joinButton: "加入群组",
-        openFallback: "如未安装 App，将跳转到下载页。",
-        downloadButton: "下载 ZenSee",
+        openingApp: "正在打开 ZenSee…",
         groupSuffix: "群组详情",
         ownerLine: "群主：%@",
         openBrowserHint: "请点击右上角",
@@ -79,8 +78,7 @@
         ownerRole: "群主",
         memberRole: "成員",
         joinButton: "加入群組",
-        openFallback: "如未安裝 App，將跳轉到下載頁。",
-        downloadButton: "下載 ZenSee",
+        openingApp: "正在打開 ZenSee…",
         groupSuffix: "群組詳情",
         ownerLine: "群主：%@",
         openBrowserHint: "請點擊右上角",
@@ -97,8 +95,7 @@
         ownerRole: "グループ主",
         memberRole: "メンバー",
         joinButton: "グループに参加",
-        openFallback: "App が未インストールの場合はダウンロードページへ移動します。",
-        downloadButton: "ZenSee をダウンロード",
+        openingApp: "ZenSee を開いています…",
         groupSuffix: "グループ詳細",
         ownerLine: "グループ主：%@",
         openBrowserHint: "右上のメニューをタップ",
@@ -115,8 +112,7 @@
         ownerRole: "Owner",
         memberRole: "Member",
         joinButton: "Join Group",
-        openFallback: "If the app is not installed, you will be redirected to the download page.",
-        downloadButton: "Download ZenSee",
+        openingApp: "Opening ZenSee…",
         groupSuffix: "Group Details",
         ownerLine: "Owner: %@",
         openBrowserHint: "Tap the top-right menu",
@@ -200,6 +196,7 @@
     }
     if (elements.joinButton) {
       elements.joinButton.textContent = copy.joinButton;
+      elements.joinButton.disabled = !state.groupId;
     }
   }
 
@@ -219,6 +216,7 @@
     elements.errorState.hidden = true;
     state.mode = "join";
     elements.joinButton.textContent = copy.joinButton;
+    elements.joinButton.disabled = false;
     renderMemberList(elements.memberList, state.members);
   }
 
@@ -258,15 +256,16 @@
     if (elements.errorState) {
       elements.errorState.hidden = false;
     }
-    state.mode = "download";
+    state.mode = "join";
     if (elements.errorTitle) {
-      elements.errorTitle.textContent = copy.downloadButton;
+      elements.errorTitle.textContent = copy.groupSuffix;
     }
     if (elements.errorBody) {
       elements.errorBody.textContent = message;
     }
     if (elements.joinButton) {
-      elements.joinButton.textContent = copy.downloadButton;
+      elements.joinButton.textContent = copy.joinButton;
+      elements.joinButton.disabled = !state.groupId;
     }
   }
 
@@ -276,8 +275,7 @@
     }
 
     elements.joinButton.addEventListener("click", function () {
-      if (state.mode === "download" || !state.groupId) {
-        window.location.href = config.downloadUrl || (config.siteBaseUrl || "") + "/download/";
+      if (!state.groupId || elements.joinButton.disabled) {
         return;
       }
 
@@ -318,19 +316,23 @@
 
   function openApp(groupId) {
     var deepLink = "zensee://group/join?id=" + encodeURIComponent(groupId);
-    var fallback = config.downloadUrl || (config.siteBaseUrl || "") + "/download/";
     var didHide = false;
     var visibilityHandler = function () {
       didHide = document.hidden;
     };
 
     document.addEventListener("visibilitychange", visibilityHandler);
+    if (elements.joinButton) {
+      elements.joinButton.disabled = true;
+      elements.joinButton.textContent = copy.openingApp;
+    }
     window.location.href = deepLink;
 
     window.setTimeout(function () {
       document.removeEventListener("visibilitychange", visibilityHandler);
-      if (!didHide) {
-        window.location.href = fallback;
+      if (elements.joinButton) {
+        elements.joinButton.disabled = false;
+        elements.joinButton.textContent = copy.joinButton;
       }
     }, 900);
   }
