@@ -342,6 +342,11 @@ main section[id] {
   white-space: nowrap;
 }
 
+.mobile-break,
+.modules-mobile-note {
+  display: none;
+}
+
 .modules-heading {
   max-width: 520px;
   margin-bottom: 64px;
@@ -665,7 +670,9 @@ main section[id] {
   }
 
   .download-grid {
-    margin-top: 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px;
   }
 
   .overview-stage-copy h2,
@@ -722,8 +729,53 @@ main section[id] {
   }
 
   .quiet-band span {
-    white-space: normal;
-    max-width: 18ch;
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  .mobile-break {
+    display: block;
+  }
+
+  .modules-mobile-summary {
+    display: none;
+  }
+
+  .modules-heading {
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  .modules-mobile-note {
+    display: block;
+    margin: 16px 0 0;
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .download-item {
+    gap: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .download-item .platform-meta,
+  .download-item p {
+    display: none;
+  }
+
+  .download-item .button-secondary {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 0;
+    padding: 12px 10px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .module-list {
+    display: none;
   }
 
   .module-row {
