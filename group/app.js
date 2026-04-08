@@ -31,6 +31,7 @@
     return;
   }
 
+  scheduleInitialOpenAttempt();
   loadGroup();
 
   function detectLocale() {
@@ -274,9 +275,55 @@
     });
   }
 
-  function openApp(groupId) {
+  function isAndroidDevice() {
+    return /android/i.test(navigator.userAgent || "");
+  }
+
+  function universalGroupLink(groupId) {
     var universalLinkBase = String(config.appUniversalLinkBase || "https://iveszhan.github.io/zensee/").replace(/\?+$/, "");
-    var deepLink = universalLinkBase + "?target=group-join&id=" + encodeURIComponent(groupId);
+    return universalLinkBase + "?target=group-join&id=" + encodeURIComponent(groupId);
+  }
+
+  function customSchemeGroupLink(groupId) {
+    return "zensee://group/join?id=" + encodeURIComponent(groupId);
+  }
+
+  function androidIntentGroupLink(groupId) {
+    var fallbackURL = String(config.downloadPageURL || "https://iveszhan.github.io/zensee-web/download/");
+    return "intent://group/join?id=" + encodeURIComponent(groupId) +
+      "#Intent;scheme=zensee;package=com.yuzhan.zenseeapp;S.browser_fallback_url=" +
+      encodeURIComponent(fallbackURL) + ";end";
+  }
+
+  function scheduleInitialOpenAttempt() {
+    if (!state.groupId || !isAndroidDevice()) {
+      return;
+    }
+
+    try {
+      var sessionKey = "zensee-group-auto-open:" + state.groupId;
+      if (window.sessionStorage && window.sessionStorage.getItem(sessionKey) === "1") {
+        return;
+      }
+      if (window.sessionStorage) {
+        window.sessionStorage.setItem(sessionKey, "1");
+      }
+    } catch (error) {
+      console.warn("[group-page] failed to persist android auto-open state", error);
+    }
+
+    window.setTimeout(function () {
+      if (!document.hidden) {
+        openApp(state.groupId, { useCustomScheme: true });
+      }
+    }, 140);
+  }
+
+  function openApp(groupId, options) {
+    var useCustomScheme = Boolean(options && options.useCustomScheme);
+    var deepLink = useCustomScheme
+      ? customSchemeGroupLink(groupId)
+      : (isAndroidDevice() ? androidIntentGroupLink(groupId) : universalGroupLink(groupId));
     var didHide = false;
     var visibilityHandler = function () {
       didHide = document.hidden;
