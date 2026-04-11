@@ -19,11 +19,9 @@
     errorState: document.getElementById("error-state"),
     errorTitle: document.getElementById("error-title"),
     errorBody: document.getElementById("error-body"),
-    contentState: document.getElementById("content-state"),
-    joinButton: document.getElementById("join-button")
+    contentState: document.getElementById("content-state")
   };
 
-  bindButton();
   setLoadingState();
 
   if (!state.groupId) {
@@ -60,8 +58,8 @@
         publicBadge: "公开群组",
         ownerRole: "群主",
         memberRole: "成员",
-        joinButton: "加入群组",
-        openingApp: "正在打开 ZenSee…",
+        brand: "禅·见",
+        pageTitle: "禅·见 | 群组邀请",
         groupSuffix: "群组详情",
         ownerLine: "群主：%@"
       },
@@ -75,8 +73,8 @@
         publicBadge: "公開群組",
         ownerRole: "群主",
         memberRole: "成員",
-        joinButton: "加入群組",
-        openingApp: "正在打開 ZenSee…",
+        brand: "禪·見",
+        pageTitle: "禪·見 | 群組邀請",
         groupSuffix: "群組詳情",
         ownerLine: "群主：%@"
       },
@@ -90,8 +88,8 @@
         publicBadge: "公開グループ",
         ownerRole: "グループ主",
         memberRole: "メンバー",
-        joinButton: "グループに参加",
-        openingApp: "ZenSee を開いています…",
+        brand: "禅·見",
+        pageTitle: "禅·見 | グループ招待",
         groupSuffix: "グループ詳細",
         ownerLine: "グループ主：%@"
       },
@@ -105,8 +103,8 @@
         publicBadge: "Public Group",
         ownerRole: "Owner",
         memberRole: "Member",
-        joinButton: "Join Group",
-        openingApp: "Opening ZenSee…",
+        brand: "ZenSee",
+        pageTitle: "ZenSee | Group Invitation",
         groupSuffix: "Group Details",
         ownerLine: "Owner: %@"
       }
@@ -180,22 +178,19 @@
   }
 
   function setLoadingState() {
+    document.title = copy.pageTitle;
     if (elements.status) {
       elements.status.textContent = copy.loading;
     }
     if (elements.title) {
       elements.title.textContent = copy.loading;
     }
-    if (elements.joinButton) {
-      elements.joinButton.textContent = copy.joinButton;
-      elements.joinButton.disabled = !state.groupId;
-    }
   }
 
   function renderGroup() {
     var snapshot = state.snapshot;
 
-    document.title = snapshot.name + " · " + copy.groupSuffix;
+    document.title = snapshot.name + " · " + copy.brand;
 
     elements.status.textContent = copy.publicBadge;
     elements.title.textContent = snapshot.name;
@@ -207,8 +202,6 @@
     elements.membersSection.hidden = false;
     elements.errorState.hidden = true;
     state.mode = "join";
-    elements.joinButton.textContent = copy.joinButton;
-    elements.joinButton.disabled = false;
     renderMemberList(elements.memberList, state.members);
   }
 
@@ -238,7 +231,7 @@
   }
 
   function renderError(message) {
-    document.title = copy.groupSuffix;
+    document.title = copy.pageTitle;
     if (elements.contentState) {
       elements.contentState.hidden = true;
     }
@@ -255,24 +248,6 @@
     if (elements.errorBody) {
       elements.errorBody.textContent = message;
     }
-    if (elements.joinButton) {
-      elements.joinButton.textContent = copy.joinButton;
-      elements.joinButton.disabled = !state.groupId;
-    }
-  }
-
-  function bindButton() {
-    if (!elements.joinButton) {
-      return;
-    }
-
-    elements.joinButton.addEventListener("click", function () {
-      if (!state.groupId || elements.joinButton.disabled) {
-        return;
-      }
-
-      openApp(state.groupId);
-    });
   }
 
   function isAndroidDevice() {
@@ -330,18 +305,10 @@
     };
 
     document.addEventListener("visibilitychange", visibilityHandler);
-    if (elements.joinButton) {
-      elements.joinButton.disabled = true;
-      elements.joinButton.textContent = copy.openingApp;
-    }
     window.location.href = deepLink;
 
     window.setTimeout(function () {
       document.removeEventListener("visibilitychange", visibilityHandler);
-      if (elements.joinButton) {
-        elements.joinButton.disabled = false;
-        elements.joinButton.textContent = copy.joinButton;
-      }
     }, 900);
   }
 
